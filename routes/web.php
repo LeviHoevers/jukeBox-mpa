@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\GenreController;
+
+use App\Http\Controllers\SongController;
+
+use App\http\Controllers\SongDetailsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +25,9 @@ Route::get('/', function () {
 });
 
 Route::get('/genres', [GenreController::class,"show"]);
+
+Route::get('/songs/{genre_id}', [SongController::class, "show"]);
+
+Route::get('/songDetails/{song_id}', [SongDetailsController::class, "show"]);
 
 

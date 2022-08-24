@@ -6,11 +6,11 @@
         <title>jukebox-mpa</title>
     </head>
     <body>
-        <h1>bye men</h1>
+        <h1>Genres</h1>
         <ul>
         @foreach($tableGenre as $currentValue)
 
-        <li>{{$currentValue->name}}</li>
+        <li><a href="songs/{{$currentValue->id}}">{{$currentValue->name}}</a></li>
 
         @endforeach
         </ul>

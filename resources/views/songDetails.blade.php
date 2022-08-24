@@ -7,9 +7,11 @@
     </head>
     <body>
         <h1>song info</h1>
-        <form action="">
-            <h1>here you can see the genres</h1>
-            <button><a href="/genres">go to genres</a></button>
-        </form>
+            <ul>
+                <li>Name: {{$currentSong->name}}</li>
+                <li>Artist: {{$currentSong->artist}}</li>
+                <li>Duration: {{$currentSong->duration}}</li>
+                <li>Created at: {{$currentSong->created_at}}</li>
+            </ul>
     </body>
 </html>
