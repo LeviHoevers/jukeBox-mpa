@@ -7,11 +7,13 @@
     </head>
     <body>
         <h1>song info</h1>
-            <ul>
-                <li>Name: {{$currentSong->name}}</li>
-                <li>Artist: {{$currentSong->artist}}</li>
-                <li>Duration: {{$currentSong->duration}}</li>
-                <li>Created at: {{$currentSong->created_at}}</li>
-            </ul>
+        <ul>
+            <li>Name: {{$currentSong->name}}</li>
+            <li>Artist: {{$currentSong->artist}}</li>
+            <li>Duration: {{$currentSong->duration}}</li>
+            <li>Created at: {{$currentSong->created_at}}</li>
+        </ul>
+        <button><a href="/addSong/{{$currentSong->id}}">add to playlist</a></button>
+        <button><a href="/songs/{{$currentSong->genre_id}}">go back</a></button>
     </body>
 </html>

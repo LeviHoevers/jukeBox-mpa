@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+namespace App\Models;
 
 use App\Models\Song;
 
-class SessionController extends Controller
+use Illuminate\Http\Request;
+
+class Playlist
 {
-    public function getSong(Request $request, $song_id){
+    public function addSong(Request $request, $song_id){
+        
         $selectedSong = Song::where('id', $song_id)->first();
 
         if(!$request->session()->has("playlist")){
@@ -18,6 +19,14 @@ class SessionController extends Controller
         $sessionPlaylist = $request->session()->get('playlist');
         array_push($sessionPlaylist, $selectedSong);
         $request->session()->put('playlist', $sessionPlaylist);
-        dd($request->session());
+
+        return redirect()->back();
+    }
+
+    Public function deleteSong(Request $request, $song_id){
+        
+        $selectedSong = $request->session()->get("id", $song_id);
+
+        return redirect()->back();
     }
 }

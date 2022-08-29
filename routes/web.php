@@ -10,6 +10,10 @@ use App\Http\Controllers\SongDetailsController;
 
 use App\Http\Controllers\SessionController;
 
+use App\Http\Controllers\PlaylistController;
+
+use App\Models\Playlist;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +36,12 @@ Route::get('/songs/{genre_id}', [SongController::class, "show"]);
 
 Route::get('/songDetails/{song_id}', [SongDetailsController::class, "show"]);
 
-Route::get("/playlist/{song_id}", [SessionController::class, "getSong"]);
+Route::get('/addSong/{song_id}', [Playlist::class, "addSong"]);
+
+Route::get('/playlist', [PlaylistController::class, "show"]);
+
+Route::get('/deleteSong/{song_id}', [Playlist::class, "deleteSong"]);
+
+
 
 

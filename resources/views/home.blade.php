@@ -8,8 +8,9 @@
     <body>
         <h1>song info</h1>
         <form action="">
-            <h1>here you can see the genres</h1>
+            <h1>click the button where you would like to go</h1>
             <button><a href="/genres">go to genres</a></button>
+            <button><a href="/playlist">go to playlist</a></button>
         </form>
     </body>
 </html>

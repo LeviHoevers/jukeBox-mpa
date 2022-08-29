@@ -7,12 +7,13 @@
     </head>
     <body>
         <h1>Genres</h1>
-        <ul>
+        <ul style="list-style: none;">
         @foreach($tableGenre as $currentValue)
 
-        <li><a href="songs/{{$currentValue->id}}">{{$currentValue->name}}</a></li>
+        <li style="margin: 5px;"><a href="songs/{{$currentValue->id}}">{{$currentValue->name}}</a></li>
 
         @endforeach
+        <button  style="margin: 5px; padding: 5px;" ><a href="/">go back</a></button>
         </ul>
     </body>
 </html>
