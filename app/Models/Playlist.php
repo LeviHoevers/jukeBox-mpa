@@ -23,9 +23,13 @@ class Playlist
         return redirect()->back();
     }
 
-    Public function deleteSong(Request $request, $song_id){
-        
-        $selectedSong = $request->session()->get("id", $song_id);
+    Public function deleteSong(Request $request, $song_index){
+
+        $playlist = $request->session()->get('playlist');
+
+        array_splice($playlist, $song_index, 1);
+
+        $request->session()->put('playlist', $playlist);
 
         return redirect()->back();
     }

@@ -40,7 +40,7 @@ Route::get('/addSong/{song_id}', [Playlist::class, "addSong"]);
 
 Route::get('/playlist', [PlaylistController::class, "show"]);
 
-Route::get('/deleteSong/{song_id}', [Playlist::class, "deleteSong"]);
+Route::get('/deleteSong/{song_index}', [Playlist::class, "deleteSong"]);
 
 
 

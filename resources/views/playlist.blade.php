@@ -18,7 +18,7 @@
                 <li>Duration: {{$songValue->duration}}</li>
                 <li>Created at: {{$songValue->created_at}}</li>
             </ul>
-            <button style="margin: 5px;"><a href="/deleteSong/{{$songValue->id}}">delete song</a></button>
+            <button style="margin: 5px;"><a href="/deleteSong/{{$loop->index}}">delete song</a></button>
         </div>
         @endforeach
     @endif
