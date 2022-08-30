@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>playlist</h1>
+    <p>total duration: {{$totalDuration}}</p>
     @if(isset($playlist))
         @foreach($playlist as $songValue)
 

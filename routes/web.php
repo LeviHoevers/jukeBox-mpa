@@ -36,11 +36,11 @@ Route::get('/songs/{genre_id}', [SongController::class, "show"]);
 
 Route::get('/songDetails/{song_id}', [SongDetailsController::class, "show"]);
 
-Route::get('/addSong/{song_id}', [Playlist::class, "addSong"]);
+Route::get('/addSong/{song_id}', [PlaylistController::class, "addSong"]);
 
 Route::get('/playlist', [PlaylistController::class, "show"]);
 
-Route::get('/deleteSong/{song_index}', [Playlist::class, "deleteSong"]);
+Route::get('/deleteSong/{song_index}', [PlaylistController::class, "deleteSong"]);
 
 
 
