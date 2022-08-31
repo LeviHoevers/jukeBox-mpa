@@ -12,9 +12,6 @@ use App\Http\Controllers\SessionController;
 
 use App\Http\Controllers\PlaylistController;
 
-use App\Models\Playlist;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +27,12 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 Route::get('/genres', [GenreController::class,"show"]);
 
 Route::get('/songs/{genre_id}', [SongController::class, "show"]);
@@ -41,7 +44,3 @@ Route::get('/addSong/{song_id}', [PlaylistController::class, "addSong"]);
 Route::get('/playlist', [PlaylistController::class, "show"]);
 
 Route::get('/deleteSong/{song_index}', [PlaylistController::class, "deleteSong"]);
-
-
-
-

@@ -13,6 +13,6 @@ class songs_seeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Song::factory(25)->create();
+        \App\Models\Song::factory(50)->create();
     }
 }
