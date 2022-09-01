@@ -9,7 +9,6 @@ use App\Models\Genre;
 class GenreController extends Controller
 {
     public function show(){
-        $tableGenre = Genre::all();
-        return view("genres", ["tableGenre"=>$tableGenre]);
+        return view("genres", ["tableGenre"=>Genre::all()]);
     }
 }

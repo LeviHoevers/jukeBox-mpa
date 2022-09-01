@@ -8,9 +8,9 @@ use App\Http\Controllers\SongController;
 
 use App\Http\Controllers\SongDetailsController;
 
-use App\Http\Controllers\SessionController;
-
 use App\Http\Controllers\PlaylistController;
+
+use App\Http\Controllers\SavedPlaylistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +44,6 @@ Route::get('/addSong/{song_id}', [PlaylistController::class, "addSong"]);
 Route::get('/playlist', [PlaylistController::class, "show"]);
 
 Route::get('/deleteSong/{song_index}', [PlaylistController::class, "deleteSong"]);
+
+Route::get('/savePlaylist', [SavedPlaylistController::class, "savePlaylist"]);
+

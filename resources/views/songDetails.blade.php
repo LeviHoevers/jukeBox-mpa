@@ -14,6 +14,5 @@
             <li>Created at: {{$currentSong->created_at}}</li>
         </ul>
         <button><a href="/addSong/{{$currentSong->id}}">add to playlist</a></button>
-        <button><a href="/songs/{{$currentSong->genre_id}}">go back</a></button>
     </body>
 </html>

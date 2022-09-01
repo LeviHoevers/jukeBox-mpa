@@ -23,6 +23,7 @@
         </div>
         @endforeach
     @endif
+    <button style="margin: 5px;"><a href="/savePlaylist">save playlist</a></button>
     <button style="margin: 5px;"><a href="/">go back</a></button>
 </body>
 </html>

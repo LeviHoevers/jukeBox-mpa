@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Models\Song;
 
+use App\Models\SavedPlaylist;
+
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\DB;
+
 
 class PlaylistController extends Controller
 {

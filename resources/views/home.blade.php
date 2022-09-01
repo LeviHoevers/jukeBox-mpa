@@ -6,11 +6,18 @@
         <title>jukebox-mpa</title>
     </head>
     <body>
+        @auth
+        <p>you're logged in!</p>
+        <button><a href="">log out</a></button>
+        @endauth
         <h1>song info</h1>
         <form action="">
             <h1>click the button where you would like to go</h1>
             <button><a href="/genres">go to genres</a></button>
             <button><a href="/playlist">go to playlist</a></button>
+            @auth
+            <button><a href="/savedplaylist">go to saved playlist</a></button>
+            @endauth
         </form>
     </body>
 </html>
