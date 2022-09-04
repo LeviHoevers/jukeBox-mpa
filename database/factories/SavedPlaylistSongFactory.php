@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 use Illuminate\Support\Str;
 
-use App\Model\Song;
+use App\Models\Song;
+use App\Models\SavedPlaylist;
 
 class SavedPlaylistSongFactory extends Factory
 {
@@ -18,7 +19,7 @@ class SavedPlaylistSongFactory extends Factory
     public function definition()
     {
         return [
-            'saved_playlist_id' => ,
+            'saved_playlist_id' => SavedPlaylist::all()->random()->id,
             'song_id' => Song::all()->random()->id,
         ];
     }

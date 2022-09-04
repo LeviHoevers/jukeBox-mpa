@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class SavedPlaylistSong extends Model
 {
     use HasFactory;
+
+    protected $fillable = ["saved_playlist_id", "song_id"];
+
+    public $timestamps = false;
 }

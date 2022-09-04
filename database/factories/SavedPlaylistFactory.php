@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 use Illuminate\Support\Str;
 
-use App\Model\User;
+use App\Models\User;
 
 class SavedPlaylistFactory extends Factory
 {

@@ -13,6 +13,6 @@ class SavedPlaylistSongSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\SavedPlaylistSong::factory(10)->create();
+        \App\Models\SavedPlaylistSong::factory(50)->create();
     }
 }

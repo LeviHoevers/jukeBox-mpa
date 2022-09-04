@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
 
+use App\Models\SavedPLaylist;
+
+use App\Models\SavedPLaylistSong;
+
 class SavedPlaylistController extends Controller
 {
     public function savePlaylist(Request $request){
@@ -15,13 +19,17 @@ class SavedPlaylistController extends Controller
         $sessionPlaylist = $request->session()->get("playlist");
 
         if (Auth::check() && isset($sessionPlaylist)) {
-            
-            $name = "cheese";
 
-            DB::insert("insert into saved_playlists (user_id, name) values (?, ?)", [Auth::user()->id, $name]);
+            $saved_playlist = SavedPLaylist::create([
+                "user_id" => Auth::user()->id,
+                "name" => "cheese"
+            ]);
 
             foreach($sessionPlaylist as $currentSong){
-                DB::insert("insert into saved_playlist_songs (saved_playlist_id, song_id) values (?, ?)", [$saved_playlist_id, $currentSong->id]);
+                SavedPLaylistSong::create([
+                    "saved_playlist_id" => $saved_playlist->id,
+                    "song_id" => $currentSong->id
+                ]);
             }
 
             return redirect()->back();
