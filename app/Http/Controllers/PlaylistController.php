@@ -32,7 +32,9 @@ class PlaylistController extends Controller
             $playlist = [];
             $request->session()->put('playlist', $playlist);
         }
+
         $sessionPlaylist = $request->session()->get('playlist');
+
         array_push($sessionPlaylist, $selectedSong);
         $request->session()->put('playlist', $sessionPlaylist);
 
@@ -47,7 +49,7 @@ class PlaylistController extends Controller
 
         $request->session()->put('playlist', $playlist);
 
-        return redirect()->back();
+        return redirect()->back();  
     }
 
     public function calcDuration($playlist){

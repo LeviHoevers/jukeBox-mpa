@@ -23,7 +23,9 @@
         </div>
         @endforeach
     @endif
+    @auth
     <button style="margin: 5px;"><a href="/savePlaylist">save playlist</a></button>
+    @endauth
     <button style="margin: 5px;"><a href="/">go back</a></button>
 </body>
 </html>

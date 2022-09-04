@@ -6,14 +6,20 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Models\SavedPLaylist;
 
 use App\Models\SavedPLaylistSong;
 
 class SavedPlaylistController extends Controller
 {
+    public function show(){
+
+        $savedPlaylists = SavedPLaylist::where("user_id", Auth::user()->id)->get();
+ 
+        return view("savedPlaylists", ["savedPlaylists" => $savedPlaylists]);
+    }
+
+
     public function savePlaylist(Request $request){
         
         $sessionPlaylist = $request->session()->get("playlist");
@@ -22,7 +28,7 @@ class SavedPlaylistController extends Controller
 
             $saved_playlist = SavedPLaylist::create([
                 "user_id" => Auth::user()->id,
-                "name" => "cheese"
+                "name" => "playlist"
             ]);
 
             foreach($sessionPlaylist as $currentSong){
@@ -34,5 +40,24 @@ class SavedPlaylistController extends Controller
 
             return redirect()->back();
         }
+    }
+
+    public function deletePlaylist($playlist_id){
+
+        SavedPlaylist::where("id", $playlist_id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function changeNamePlaylist($playlist_id){
+
+        SavedPlaylist::where("id", $playlist_id);
+
+    }
+    public function showChangeNamePlaylist($playlist_id){
+
+        SavedPlaylist::where("id", $playlist_id);
+
+        
     }
 }
