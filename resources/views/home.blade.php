@@ -16,7 +16,7 @@
             <button><a href="/genres">go to genres</a></button>
             <button><a href="/playlist">go to playlist</a></button>
             @auth
-            <button><a href="/savedplaylist">go to saved playlist</a></button>
+            <button><a href="/savedPlaylists">go to saved playlists</a></button>
             @endauth
         </form>
     </body>

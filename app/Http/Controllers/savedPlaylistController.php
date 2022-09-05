@@ -49,15 +49,21 @@ class SavedPlaylistController extends Controller
         return redirect()->back();
     }
 
-    public function changeNamePlaylist($playlist_id){
+    public function changeNamePlaylist(Request $request, $playlist_id){
 
-        SavedPlaylist::where("id", $playlist_id);
+        $selectedPlaylist = SavedPlaylist::where("id", $playlist_id)->first();
 
+        $selectedPlaylist->name = $request->input;
+
+        $selectedPlaylist->save();
+
+        return redirect()->back();
     }
+
     public function showChangeNamePlaylist($playlist_id){
 
-        SavedPlaylist::where("id", $playlist_id);
+        $selectedPlaylist = SavedPlaylist::where("id", $playlist_id)->first();
 
-        
+        return view("changeNamePlaylist", ["selectedPlaylist" => $selectedPlaylist]);
     }
 }
