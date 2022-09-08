@@ -10,7 +10,7 @@
     <h1>your saved playlists</h1>
     @foreach($savedPlaylists as $currentPlaylist)
         <div style="border: solid black 1px; margin: 5px; padding: 5px;">
-            <a href="savedPlaylistDetails">
+            <a href="savedPlaylistDetails/{{$currentPlaylist->id}}">
                 <p>name: {{$currentPlaylist->name}}</p>
                 <p>click to see more details</p>
                 <button><a href="/changeNamePlaylist/{{$currentPlaylist->id}}">change name</a></button>

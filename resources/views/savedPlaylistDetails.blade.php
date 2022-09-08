@@ -7,6 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>mattie man</h1>
+    <h1>saved playlist songs</h1>
+    @foreach($allSongs as $song)
+
+        <div style="border: solid black 1px; margin: 5px; padding: 5px;">
+            <ul style="list-style: none;">
+                <li>name: {{$song->name}}</li>
+                <li>artist: {{$song->artist}}</li>
+                <li>duration: {{$song->duration}}</li>
+            </ul>
+            <button><a href="/deleteSavedSong/{{$song->id}}/{{$saved_playlist_id}}">delete song</a></button>
+            <!-- <button><a href=""></a></button> -->
+        </div>
+    @endforeach
+
+    
 </body>
 </html>

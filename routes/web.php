@@ -57,5 +57,7 @@ Route::get('/deletePlaylist/{playlist_id}', [SavedPlaylistController::class, "de
 
 Route::post('/changePlaylist/{playlist_id}', [SavedPlaylistController::class, "changeNamePlaylist"]);
 
-Route::get('/savedPlaylistDetails', [SavedPlaylistDetailsController::class, "show"]);
+Route::get('/savedPlaylistDetails/{saved_playlist_id}', [SavedPlaylistDetailsController::class, "show"]);
+
+Route::get('/deleteSavedSong/{song_id}', [SavedPlaylistDetailsController::class, "deleteSavedSong"]);
 

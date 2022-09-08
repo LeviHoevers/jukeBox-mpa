@@ -38,6 +38,8 @@ class SavedPlaylistController extends Controller
                 ]);
             }
 
+            $request->session()->forget("playlist");
+
             return redirect()->back();
         }
     }
