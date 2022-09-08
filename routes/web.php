@@ -12,6 +12,8 @@ use App\Http\Controllers\PlaylistController;
 
 use App\Http\Controllers\SavedPlaylistController;
 
+use App\Http\Controllers\SavedPlaylistDetailsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,4 +56,6 @@ Route::get('/changeNamePlaylist/{playlist_id}', [SavedPlaylistController::class,
 Route::get('/deletePlaylist/{playlist_id}', [SavedPlaylistController::class, "deletePlaylist"]);
 
 Route::post('/changePlaylist/{playlist_id}', [SavedPlaylistController::class, "changeNamePlaylist"]);
+
+Route::get('/savedPlaylistDetails', [SavedPlaylistDetailsController::class, "show"]);
 

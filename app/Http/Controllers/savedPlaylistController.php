@@ -53,9 +53,12 @@ class SavedPlaylistController extends Controller
 
         $selectedPlaylist = SavedPlaylist::where("id", $playlist_id)->first();
 
-        $selectedPlaylist->name = $request->input;
+        if(isset($request->input)){
+            
+            $selectedPlaylist->name = $request->input;
 
-        $selectedPlaylist->save();
+            $selectedPlaylist->save();    
+        }
 
         return redirect()->back();
     }
