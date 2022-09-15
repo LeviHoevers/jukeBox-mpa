@@ -14,5 +14,11 @@
             <li>Created at: {{$currentSong->created_at}}</li>
         </ul>
         <button><a href="/addSong/{{$currentSong->id}}">add to playlist</a></button>
+        @auth
+        <form method="post" action="selectPlaylist">
+            <input type="select">
+        </form>
+
+        @endauth
     </body>
 </html>
