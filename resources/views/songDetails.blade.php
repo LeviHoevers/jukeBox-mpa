@@ -21,7 +21,7 @@
     <form style="border: solid black 1px; margin: 5px; padding: 5px; " method="post" action="/addToSavedPlaylist/{{$currentSong->id}}">
             @csrf
             <p>save this song in one of your Saved Playlists</p>
-            <select name="selectedPlaylist">
+            <select value="selectedPlaylist" name="selectedPlaylist">
                 @foreach($user_playlists as $playlist)
                         <option value="{{$playlist->id}}">{{$playlist->id}}</option>
                 @endforeach

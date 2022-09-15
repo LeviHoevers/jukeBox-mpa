@@ -14,8 +14,13 @@ use App\Models\Song;
 
 class SongDetailsController extends Controller
 {
-    public function show($saved_playlist_id){
-        return view('savedPlaylistDetails', ['allSongs' => SavedPlaylist::find($saved_playlist_id)->songs, 'saved_playlist_id' => $saved_playlist_id]);
+    public function show($song_id){
+
+        if(Auth::check()){
+            $user_playlists = SavedPlaylist::where("user_id", Auth::user()->id)->get();
+        }
+        
+        return view('songDetails', ["currentSong" => Song::find($song_id), "user_playlists" => $user_playlists]);
     }
 
     public function deleteSavedSong($song_id, $saved_playlist_id){
@@ -24,4 +29,5 @@ class SongDetailsController extends Controller
 
         return redirect()->back();
     }
+
 }
