@@ -59,5 +59,7 @@ Route::post('/changePlaylist/{playlist_id}', [SavedPlaylistController::class, "c
 
 Route::get('/savedPlaylistDetails/{saved_playlist_id}', [SavedPlaylistDetailsController::class, "show"]);
 
-Route::get('/deleteSavedSong/{song_id}', [SavedPlaylistDetailsController::class, "deleteSavedSong"]);
+Route::get('/deleteSavedSong/{song_id}/{saved_playlist_id}', [SavedPlaylistDetailsController::class, "deleteSavedSong"]);
+
+Route::post('/addToSavedPlaylist/{song_id}', [SavedPlaylistController::class, "addToSavedPlaylist"]);
 

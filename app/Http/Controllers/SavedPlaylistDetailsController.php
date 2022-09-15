@@ -15,10 +15,14 @@ class SavedPlaylistDetailsController extends Controller
     }
 
     public function deleteSavedSong($song_id, $saved_playlist_id){
-        dd($saved_playlist_id);
 
-        dd(SavedPlaylistSong::where("song_id", $song_id)->limit(1));
+        SavedPlaylistSong::where("song_id", $song_id)->limit(1);
 
         return redirect()->back();
+    }
+
+    public function addToSavedPlaylist(Request $request, $song_id){
+
+        dd($request->selectedPlaylist);
     }
 }

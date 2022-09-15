@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\SavedPLaylist;
+use App\Models\SavedPlaylist;
 
-use App\Models\SavedPLaylistSong;
+use App\Models\SavedPlaylistSong;
 
 class SavedPlaylistController extends Controller
 {
     public function show(){
 
-        $savedPlaylists = SavedPLaylist::where("user_id", Auth::user()->id)->get();
+        $savedPlaylists = SavedPlaylist::where("user_id", Auth::user()->id)->get();
  
         return view("savedPlaylists", ["savedPlaylists" => $savedPlaylists]);
     }
@@ -26,13 +26,13 @@ class SavedPlaylistController extends Controller
 
         if (Auth::check() && isset($sessionPlaylist)) {
 
-            $saved_playlist = SavedPLaylist::create([
+            $saved_playlist = SavedPlaylist::create([
                 "user_id" => Auth::user()->id,
                 "name" => "playlist"
             ]);
 
             foreach($sessionPlaylist as $currentSong){
-                SavedPLaylistSong::create([
+                SavedPlaylistSong::create([
                     "saved_playlist_id" => $saved_playlist->id,
                     "song_id" => $currentSong->id
                 ]);
@@ -70,5 +70,15 @@ class SavedPlaylistController extends Controller
         $selectedPlaylist = SavedPlaylist::where("id", $playlist_id)->first();
 
         return view("changeNamePlaylist", ["selectedPlaylist" => $selectedPlaylist]);
+    }
+
+    public function addToSavedPlaylist(Request $request, $song_id){
+
+        SavedPlaylistSong::create([
+            "saved_playlist_id" => $request->selectedPlaylist,
+            "song_id" => $song_id
+        ]);
+
+        return redirect()->back();
     }
 }

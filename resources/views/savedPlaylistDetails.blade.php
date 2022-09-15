@@ -17,7 +17,6 @@
                 <li>duration: {{$song->duration}}</li>
             </ul>
             <button><a href="/deleteSavedSong/{{$song->id}}/{{$saved_playlist_id}}">delete song</a></button>
-            <!-- <button><a href=""></a></button> -->
         </div>
     @endforeach
 
