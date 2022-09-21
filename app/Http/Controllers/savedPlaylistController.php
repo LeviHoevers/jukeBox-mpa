@@ -32,7 +32,7 @@ class SavedPlaylistController extends Controller
             ]);
 
             foreach($sessionPlaylist as $currentSong){
-                SavedPlaylistSong::create([
+                SavedPLaylistSong::create([
                     "saved_playlist_id" => $saved_playlist->id,
                     "song_id" => $currentSong->id
                 ]);
@@ -66,7 +66,7 @@ class SavedPlaylistController extends Controller
     }
 
     public function showChangeNamePlaylist($playlist_id){
-
+        
         $selectedPlaylist = SavedPlaylist::where("id", $playlist_id)->first();
 
         return view("changeNamePlaylist", ["selectedPlaylist" => $selectedPlaylist]);

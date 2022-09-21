@@ -8,10 +8,18 @@ use App\Models\SavedPlaylist;
 
 use App\Models\SavedPlaylistSong;
 
+use App\Http\Controllers\PlaylistController;
+
 class SavedPlaylistDetailsController extends Controller
 {
-public function show($saved_playlist_id){
-        return view('savedPlaylistDetails', ['allSongs' => SavedPlaylist::find($saved_playlist_id)->songs, 'saved_playlist_id' => $saved_playlist_id]);
+
+    public function show($saved_playlist_id){
+
+        $allSongs = SavedPlaylist::find($saved_playlist_id)->songs;
+
+        $totalDuration = PlaylistController::calcDuration($allSongs);
+
+        return view('savedPlaylistDetails', ['allSongs' => $allSongs, 'saved_playlist_id' => $saved_playlist_id, 'totalDuration' => $totalDuration]);
     }
 
     public function deleteSavedSong($song_id, $saved_playlist_id){

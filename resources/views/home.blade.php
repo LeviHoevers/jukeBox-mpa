@@ -6,9 +6,18 @@
         <title>jukebox-mpa</title>
     </head>
     <body>
+        @guest
+    	<p>login here or sign up</p>
+        <button><a href="/login">login here</a></button>
+        <button><a href="/register">sign up here</a></button>
+
+        @endguest
+
         @auth
         <p>you're logged in!</p>
-        <button><a href="">log out</a></button>
+        <form method="post" action="/logout">
+            <input type="submit" value="logout">
+        </form>
         @endauth
         <h1>song info</h1>
         <form action="">

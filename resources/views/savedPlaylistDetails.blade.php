@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>saved playlist songs</h1>
+
+    <p>total duration: {{$totalDuration}}</p>
+
     @foreach($allSongs as $song)
 
         <div style="border: solid black 1px; margin: 5px; padding: 5px;">

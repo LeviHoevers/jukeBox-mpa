@@ -19,6 +19,9 @@ class SongDetailsController extends Controller
         if(Auth::check()){
             $user_playlists = SavedPlaylist::where("user_id", Auth::user()->id)->get();
         }
+        else{
+            $user_playlists = null;
+        }
         
         return view('songDetails', ["currentSong" => Song::find($song_id), "user_playlists" => $user_playlists]);
     }

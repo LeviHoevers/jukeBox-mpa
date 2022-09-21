@@ -23,7 +23,7 @@
             <p>save this song in one of your Saved Playlists</p>
             <select value="selectedPlaylist" name="selectedPlaylist">
                 @foreach($user_playlists as $playlist)
-                        <option value="{{$playlist->id}}">{{$playlist->id}}</option>
+                        <option value="{{$playlist->id}}">{{$playlist->name}}</option>
                 @endforeach
             </select>
             <input type="submit" value="add to selected playlist">
