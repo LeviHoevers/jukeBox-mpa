@@ -12,6 +12,7 @@ use App\Models\SavedPlaylistSong;
 
 class SavedPlaylistController extends Controller
 {
+    //laat de view zien van de opgeslagen playlist en geeft de opgeslagen playlist zelf mee
     public function show(){
 
         $savedPlaylists = SavedPlaylist::where("user_id", Auth::user()->id)->get();
@@ -20,30 +21,7 @@ class SavedPlaylistController extends Controller
     }
 
 
-    public function savePlaylist(Request $request){
-        
-        $sessionPlaylist = $request->session()->get("playlist");
-
-        if (Auth::check() && isset($sessionPlaylist)) {
-
-            $saved_playlist = SavedPlaylist::create([
-                "user_id" => Auth::user()->id,
-                "name" => "playlist"
-            ]);
-
-            foreach($sessionPlaylist as $currentSong){
-                SavedPLaylistSong::create([
-                    "saved_playlist_id" => $saved_playlist->id,
-                    "song_id" => $currentSong->id
-                ]);
-            }
-
-            $request->session()->forget("playlist");
-
-            return redirect()->back();
-        }
-    }
-
+    //verwijder playlist uit de database
     public function deletePlaylist($playlist_id){
 
         SavedPlaylist::where("id", $playlist_id)->delete();
@@ -51,6 +29,7 @@ class SavedPlaylistController extends Controller
         return redirect()->back();
     }
 
+    //veranderd naam van de opgeslagen playlist
     public function changeNamePlaylist(Request $request, $playlist_id){
 
         $selectedPlaylist = SavedPlaylist::where("id", $playlist_id)->first();
@@ -65,6 +44,7 @@ class SavedPlaylistController extends Controller
         return redirect()->back();
     }
 
+    //laat de pagina zien waart je de naam van de playlist kan aanpassen
     public function showChangeNamePlaylist($playlist_id){
         
         $selectedPlaylist = SavedPlaylist::where("id", $playlist_id)->first();
@@ -72,6 +52,7 @@ class SavedPlaylistController extends Controller
         return view("changeNamePlaylist", ["selectedPlaylist" => $selectedPlaylist]);
     }
 
+    //voegt een song toe aan een bestaande playlist
     public function addToSavedPlaylist(Request $request, $song_id){
 
         SavedPlaylistSong::create([

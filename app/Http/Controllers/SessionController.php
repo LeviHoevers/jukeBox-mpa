@@ -39,6 +39,7 @@ class SessionController extends Controller
         return redirect()->back();
     }
 
+    //verwijderd 1 specifieke song uit de session
     public function deleteSong(Request $request, $song_index){
 
         $playlist = $request->session()->get('playlist');
@@ -50,6 +51,7 @@ class SessionController extends Controller
         return redirect()->back();  
     }
 
+    //slaat de session playlist op in de database en haalt daarna de session leeg
     public function savePlaylist(Request $request){
         
         $sessionPlaylist = $request->session()->get("playlist");

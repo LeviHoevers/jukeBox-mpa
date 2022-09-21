@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>song info</h1>
-        <ul>
+        <ul style="border: solid black 1px; padding: 5px;">
             <li>Name: {{$currentSong->name}}</li>
             <li>Artist: {{$currentSong->artist}}</li>
             <li>Duration: {{$currentSong->duration}}</li>

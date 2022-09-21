@@ -45,7 +45,7 @@ Route::get('/songDetails/{song_id}', [SongDetailsController::class, "show"]);
 
 Route::get('/addSong/{song_id}', [SessionController::class, "addSong"]);
 
-Route::get('/playlist', [SessionController::class, "show"]);
+Route::get('/playlist', [PlaylistController::class, "show"]);
 
 Route::get('/deleteSong/{song_index}', [SessionController::class, "deleteSong"]);
 
